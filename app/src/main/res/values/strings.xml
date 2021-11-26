@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Project3</string>
+    <string name="correct"><b>CORRECTNESS IS</b> \n
+                           <b>%1$d</b> OUT OF 6</string>
+    <string name="true_text">true</string>
+    <string name="false_text">false</string>
+    <string name="correct_answer">That\'s correct</string>
+    <string name="wrong_answer">That\'s incorrect</string>
+    <string name="a">"Java programming is not statically-typed, means all variables should not first be declared before they can be used."</string>
+    <string name="b">"All binary operators except for the assignment operators are evaluated from Left to Right"</string>
+    <string name="c">"Assignment operator is evaluated Left to Right."</string>
+    <string name="d">"Constructor overloading is not possible in Java."</string>
+    <string name="e">"The JRE deletes objects when it determines that they are no longer being used. This process is called Garbage Collection."</string>
+    <string name="f">"Garbage Collection is manual process."</string>
+    <string name="next_text">next</string>
+    <string name="prev_text">previous</string>
 </resources>
