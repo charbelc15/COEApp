@@ -1,72 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Using linear layout with vertical orientation and center gravity -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#FFFFFF"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
 
-    <!--ImageView used for showing pictures along with questions-->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp" />
+
     <ImageView
-        android:id="@+id/myimage"
-        android:layout_width="wrap_content"
-        android:src="@drawable/f1"
-        android:layout_height="wrap_content"/>
+        android:id="@+id/news"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="48dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/quiz"
+        app:layout_constraintHorizontal_bias="0.447"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/news" />
 
-    <!--TextView used for showing questions on screen-->
+    <ImageView
+        android:id="@+id/quiz"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="44dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/quiz" />
+
     <TextView
-        android:id="@+id/answer_text_view"
-        android:text="@string/a"
-        android:textColor="@android:color/black"
-        android:textSize="30sp"
-        android:padding="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:id="@+id/textView"
+        android:layout_width="145dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="396dp"
+        android:text="Latest  News"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.199"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/news"
+        app:layout_constraintVertical_bias="0.518" />
 
-    <!--Using another LinearLayout for showing buttons
-        in horizontal orientation-->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="116dp"
+        android:layout_height="27dp"
+        android:layout_marginBottom="396dp"
+        android:text="Test yourself"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quiz" />
 
-        <!--TrueButton-->
-        <Button
-            android:id="@+id/true_button"
-            android:layout_marginRight="20dp"
-            android:backgroundTint="#5BD91B"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="@string/true_text" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="61dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="220dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        app:srcCompat="@drawable/java" />
 
-        <!--FalseButton-->
-        <Button
-            android:id="@+id/false_button"
-            android:layout_marginLeft="20dp"
-            android:layout_width="wrap_content"
-            android:backgroundTint="#E33328"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="@string/false_text" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="393dp"
-        android:layout_height="79dp"
-        android:orientation="horizontal" >
-
-        <ImageView
-            android:id="@+id/prev_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/baseline_keyboard_arrow_left_black_18dp" />
-
-    </LinearLayout>
-
-</LinearLayout>
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="125dp"
+        android:layout_height="39dp"
+        android:text="WELCOME"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.882" />
+</androidx.constraintlayout.widget.ConstraintLayout>
