@@ -1,11 +1,11 @@
 package com.example.project3;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         MediaPlayer waterSound = MediaPlayer.create(this, R.raw.watersound);
         ImageView news = this.findViewById(R.id.news);
         ImageView quiz = this.findViewById(R.id.quiz);
+        ImageView headquarters = this.findViewById(R.id.headquarters);
 
         quiz.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -35,5 +36,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        headquarters.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                waterSound.start();
+                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 }
