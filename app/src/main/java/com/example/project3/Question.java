@@ -1,46 +1,52 @@
 package com.example.project3;
 
 
+import java.net.URL;
+import java.util.List;
+
 public class Question
 {
-    // answerResId will store question
-    private int answerResId;
+    private final int questionId;
+    private final String question;
+    private final List<String> possibleAnswers;
+    private final String correctAnswer;
+    private final URL link;
+    private final int score;
 
-    // answerTrue will store correct answer
-    // of the question provided
-    private boolean answerTrue;
 
-    public Question(int answerResId, boolean answerTrue)
-    {
-        // setting the values through
-        // arguments passed in constructor
-        this.answerResId = answerResId;
-        this.answerTrue = answerTrue;
+    public Question(int questionId, String question, List<String> possibleAnswers, String correctAnswer, URL link, int score) {
+        this.questionId = questionId;
+        this.question = question;
+        this.possibleAnswers = possibleAnswers;
+        this.correctAnswer = correctAnswer;
+        this.link = link;
+        this.score = score;
+
+
+
     }
 
-    // returning the question passed
-    public int getAnswerResId()
-    {
-        return answerResId;
+    public int getQuestionId() {
+        return questionId;
     }
 
-    // setting the question passed
-    public void setAnswerResId(int answerResId)
-    {
-        this.answerResId = answerResId;
+    public String getQuestion() {
+        return question;
     }
 
-    // returning the correct answer
-    // of question
-    public boolean isAnswerTrue()
-    {
-        return answerTrue;
+    public List<String> getPossibleAnswers() {
+        return possibleAnswers;
     }
 
-    // setting the correct
-    // ans of question
-    public void setAnswerTrue(boolean answerTrue)
-    {
-        this.answerTrue = answerTrue;
+    public String getCorrectAnswer() {
+        return correctAnswer;
+    }
+
+    public URL getLink() {
+        return link;
+    }
+
+    public int getScore() {
+        return score;
     }
 }

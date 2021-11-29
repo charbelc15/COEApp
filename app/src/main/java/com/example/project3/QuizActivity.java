@@ -29,12 +29,12 @@ public class QuizActivity extends AppCompatActivity
             // array of objects of class Question
             // providing questions from string
             // resource and the correct ans
-            new Question(R.string.a, true),
-            new Question(R.string.b, true),
-            new Question(R.string.c, false),
-            new Question(R.string.d, true),
-            new Question(R.string.e, false),
-            new Question(R.string.f, false),
+            //new Question(R.string.a, true),
+            //new Question(R.string.b, true),
+            //new Question(R.string.c, false),
+            //new Question(R.string.d, true),
+            //new Question(R.string.e, false),
+            //new Question(R.string.f, false),
 
     };
 
