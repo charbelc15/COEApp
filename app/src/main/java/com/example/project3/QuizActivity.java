@@ -45,7 +45,7 @@ public class QuizActivity extends AppCompatActivity
         setContentView(R.layout.quiz_layout);
         // setting up the buttons
         // associated with id
-        falseButton = findViewById(R.id.false_button);
+        /*falseButton = findViewById(R.id.false_button);
         trueButton = findViewById(R.id.true_button);
         prevButton = findViewById(R.id.prev_button);
         // register our buttons to listen to
@@ -55,7 +55,7 @@ public class QuizActivity extends AppCompatActivity
         Image = findViewById(R.id.myimage);
         falseButton.setOnClickListener(this);
         trueButton.setOnClickListener(this);
-        prevButton.setOnClickListener(this);
+        prevButton.setOnClickListener(this);*/
     }
 
     @SuppressLint("SetTextI18n")
@@ -66,7 +66,7 @@ public class QuizActivity extends AppCompatActivity
         // checking which button is
         // clicked by user
         // in this case user choose false
-        switch (v.getId()) {
+        /*switch (v.getId()) {
             case R.id.false_button:
                 checkAnswer(false);
                 // go to next question
@@ -143,12 +143,12 @@ public class QuizActivity extends AppCompatActivity
                     currentQuestionIndex = (currentQuestionIndex - 1) % questionBank.length;
                     updateQuestion();
                 }
-        }
+        } */
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void updateQuestion()
-    {
+    {/*
         Log.d("Current", "onClick: " + currentQuestionIndex);
 
         questionTextView.setText(questionBank[currentQuestionIndex].getAnswerResId());
@@ -196,6 +196,6 @@ public class QuizActivity extends AppCompatActivity
             toastMessageId = R.string.wrong_answer;
         }
 
-        Toast.makeText(QuizActivity.this, toastMessageId, Toast.LENGTH_SHORT).show();
+        Toast.makeText(QuizActivity.this, toastMessageId, Toast.LENGTH_SHORT).show(); */
     }
 }
