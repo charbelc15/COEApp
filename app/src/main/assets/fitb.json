@@ -1,0 +1,165 @@
+[
+    {
+        "questionId": 100,
+        "question": "A method defined in a class can access the _______ variables of that class without needing to pass them as parameters or declare them as local variables.",
+        "possibleAnswers":[],
+        "correctAnswer": "instance",
+        "link": "https://www.geeksforgeeks.org/variable-scope-in-java/",
+        "score":1
+    },
+
+    {
+        "questionId": 101,
+        "question": "Local variables must be initialized ____ being used in an expression for the first time.",
+        "possibleAnswers":[],
+        "correctAnswer":"before",
+        "link": "https://www.geeksforgeeks.org/variables-in-java/",
+        "score":1
+    },
+    {
+        "questionId": 102,
+        "question": "There are ____ different forms of comment statements in Java.",
+        "possibleAnswers":[],
+        "correctAnswer": "two",
+        "link": "https://www.geeksforgeeks.org/comments-in-java/",
+        "score":1
+    },
+    {
+        "questionId": 103,
+        "question": "If you declare a constructor for a class, the compiler _____ create a default constructor for that class.",
+        "possibleAnswers":[],
+        "correctAnswer": "doesn't",
+        "link": "https://www.geeksforgeeks.org/constructors-in-java/",
+        "score":1
+    },
+    {
+        "questionId": 104,
+        "question": "Constructor methods can specify ________.",
+        "possibleAnswers":[],
+        "correctAnswer":"parameters",
+        "link": "https://www.geeksforgeeks.org/constructors-in-java/",
+        "score":1
+    },
+    {
+        "questionId": 105,
+        "question": "A primitive data type like double does not offer _______.",
+        "possibleAnswers":[],
+        "correctAnswer": "methods",
+        "link": "https://www.geeksforgeeks.org/primitive-data-type-vs-object-data-type-in-java-with-examples/",
+        "score":1
+    },
+
+    {
+        "questionId": 106,
+        "question": "A primitive-type variable does not store an ______.",
+        "possibleAnswers":[],
+        "correctAnswer": "address",
+        "link": "https://www.geeksforgeeks.org/primitive-data-type-vs-object-data-type-in-java-with-examples/",
+        "score":1
+    },
+    {
+        "questionId": 107,
+        "question": "The types of actual parameters must be ______ to the types of formal parameters.",
+        "possibleAnswers":[],
+        "correctAnswer": "identical",
+        "link": "https://www.geeksforgeeks.org/parameter-passing-techniques-in-java-with-examples/",
+        "score":1
+    },
+    {
+        "questionId": 108,
+        "question": "A _______ is a method that is called by the new operator to initialize an object’s instance variables at the time the object is created.",
+        "possibleAnswers":[],
+        "correctAnswer":"constructor",
+        "link": "https://www.geeksforgeeks.org/constructors-in-java/",
+        "score":1
+    },
+    {
+        "questionId": 109,
+        "question": "The method’s return type specifies the type of data returned to the _____ method.",
+        "possibleAnswers":[],
+        "correctAnswer": "calling",
+        "link": "https://www.geeksforgeeks.org/return-keyword-java/",
+        "score":1
+    },
+    {
+        "questionId": 110,
+        "question": "By convention, class names begin with an ________ letter.",
+        "possibleAnswers":[],
+        "correctAnswer": "uppercase",
+        "link": "https://www.geeksforgeeks.org/java-naming-conventions/",
+        "score":1
+    },
+    {
+        "questionId": 111,
+        "question": "Methods and variables begin with a ________ letter.",
+        "possibleAnswers":[],
+        "correctAnswer": "lowercase",
+        "link": "https://www.geeksforgeeks.org/java-naming-conventions/",
+        "score":1
+    },
+    {
+        "questionId": 112,
+        "question": "A method whose sole purpose is to help another method do its job can be declared as ______.",
+        "possibleAnswers":[],
+        "correctAnswer": "private",
+        "link": "https://www.geeksforgeeks.org/private-and-final-methods-in-java/",
+        "score":1
+    },
+    {
+        "questionId": 113,
+        "question": "A ________ method allows a client program to change the state of an object created from the helper class.",
+        "possibleAnswers":[],
+        "correctAnswer": "mutator",
+        "link": "https://www.geeksforgeeks.org/overriding-accessors-and-mutators-in-scala/",
+        "score":1
+    },
+    {
+        "questionId": 114,
+        "question": "_______ is the automatic conversion from a wrapper class to its corresponding primitive data type.",
+        "possibleAnswers":[],
+        "correctAnswer": "Unboxing",
+        "link": "https://www.geeksforgeeks.org/autoboxing-unboxing-java/",
+        "score":1
+    },
+    {
+        "questionId": 115,
+        "question": "The ________ method can be used to change the delimiter of the Scanner class.",
+        "possibleAnswers":[],
+        "correctAnswer": "useDelimiter",
+        "link": "https://www.geeksforgeeks.org/scanner-usedelimiter-method-in-java-with-examples/",
+        "score":1
+    },
+    {
+        "questionId": 116,
+        "question": "The cases of a switch statement ______ mutually exclusive by default.",
+        "possibleAnswers":[],
+        "correctAnswer": "aren't",
+        "link": "https://www.geeksforgeeks.org/switch-statement-in-java/",
+        "score":1
+    },
+    {
+        "questionId": 117,
+        "question": "The default case is ______ in a switch selection statement.",
+        "possibleAnswers":[],
+        "correctAnswer": "optional",
+        "link": "https://www.geeksforgeeks.org/switch-statement-in-java/",
+        "score":1
+    },
+    {
+        "questionId": 118,
+        "question": "Comparable is an ________.",
+        "possibleAnswers":[],
+        "correctAnswer": "interface",
+        "link": "https://www.geeksforgeeks.org/comparable-vs-comparator-in-java/",
+        "score":1
+    },
+
+    {
+        "questionId": 119,
+        "question": "FileWriter is part of the ________ package.",
+        "possibleAnswers":[],
+        "correctAnswer": "java.io",
+        "link": "https://www.geeksforgeeks.org/filewriter-class-in-java/",
+        "score":1
+    }
+]

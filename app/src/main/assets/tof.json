@@ -1,0 +1,643 @@
+[{
+"questionId": 0,
+"question": "A method defined in a class can access the instance variables of that class without needing to pass them as parameters or declare them as local variables.",
+"possibleAnswers":["True", "False"],
+"correctAnswer":"True",
+"link": "https://www.geeksforgeeks.org/variables-in-java/",
+"score":1
+},
+
+{
+    "questionId": 1,
+    "question": "If x is the String 'HI THERE', then x.toLowerCase().toUpperCase(); will return the original version of x",
+    "possibleAnswers":["True", "False"],
+    "correctAnswer":"True",
+    "link":"https://www.geeksforgeeks.org/strings-in-java/",
+    "score":2
+    },
+
+    {
+        "questionId": 2,
+        "question": "If no visibility modifier is placed in front of a method, the method cannot be called from outside of the class containing it",
+        "possibleAnswers":["True", "False"],
+        "correctAnswer":"False",
+        "link": "https://www.geeksforgeeks.org/public-vs-private-access-modifiers-in-java/",
+        "score":1
+    },
+    {
+        "questionId": 3,
+        "question": "The following assignment statement is a valid Java statement: Integer string = 23;",
+        "possibleAnswers":["True", "False"],
+        "correctAnswer":"True",
+        "link": "https://www.geeksforgeeks.org/java-assignment-operator-with-examples/",
+        "score":2
+    },
+    {
+        "questionId": 4,
+        "question": "The output of the following statement is 4.5: System.out.print((double)(9/2));",
+        "possibleAnswers":["True", "False"],
+        "correctAnswer":"False",
+        "link": "https://www.geeksforgeeks.org/operators-in-java/",
+        "score":1
+    },
+    {
+        "questionId": 5,
+        "question": "The following code prints character 'r' on-screen: String s = 'Constitution'; System.out.print(s.charAt(7));",
+        "possibleAnswers":["True", "False"],
+        "correctAnswer":"False",
+        "link": "https://www.geeksforgeeks.org/java-string-charat-method-example/",
+        "score":1
+    },
+    {
+        "questionId": 6,
+        "question": "There are two different forms of comment statements in Java.",
+        "possibleAnswers":["True", "False"],
+        "correctAnswer":"True",
+        "link": "https://www.geeksforgeeks.org/comments-in-java/",
+        "score":1
+        },
+        {
+            "questionId": 7,
+            "question": "Declaring a method with private visibility violates the encapsulation principle as all methods inside a class must be public.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/encapsulation-in-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 8,
+            "question": "A proper way to enable access to instance variables is to make those instance variables public.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/variables-in-java/",
+            "score":1
+        },
+        {
+            "questionId": 9,
+            "question": "The following assignment statement is a valid Java statement: Char string = 'c';",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/strings-in-java/",
+            "score":1
+        },
+        {
+            "questionId": 10,
+            "question": "The output of the statement below is a random value between 1 (inclusive) and 6 (exclusive): System.out.print((int) Math.random()*6+1);",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/java-math-random-method-examples/",
+            "score":2
+        },
+
+        {
+            "questionId": 11,
+            "question": "In a Java Program, a constructor method can either have a return type of void or have no return type listed in the header at all.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/constructors-in-java/",
+            "score":1
+        },
+        {
+            "questionId": 12,
+            "question": "In a Java program, each opening curly brace { must have a corresponding closing curly brace }, otherwise a run-time error occurs.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/types-of-errors-in-java-with-examples/",
+            "score":2
+        },
+        {
+            "questionId": 13,
+            "question": "In Java, for each primitive data type, there is a corresponding Wrapper class, including the boolean data type. Therefore, this is a valid Java assignment statement: Boolean flag = true;",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link": "https://www.geeksforgeeks.org/wrapper-classes-java/",
+            "score":2
+        },
+
+        {
+            "questionId": 14,
+            "question": "If during the execution of a Java program the last reference to a primitive value is lost, the primitive value is marked as garbage and is automatically removed from memory using Java's automatic garbage collection feature.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/garbage-collection-java/",
+            "score":1
+        },
+        {
+            "questionId": 15,
+            "question": "A String object can be changed after instantiation since String objects are immutable.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link":"https://www.geeksforgeeks.org/java-string-is-immutable-what-exactly-is-the-meaning/",
+            "score":2
+        },
+        {
+            "questionId": 16,
+            "question": "A method invocation statement may cause the compiler to generate a compile time error even if the number of actual parameters matches exactly the number of formal parameters.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link": "https://www.geeksforgeeks.org/types-of-errors-in-java-with-examples/",
+            "score":2
+        },
+        {
+            "questionId": 17,
+            "question": "A static method such as the parseDouble method of the Integer wrapper is called through the name of the class.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link":"https://www.geeksforgeeks.org/static-methods-vs-instance-methods-java/",
+            "score":1
+        },
+        {
+            "questionId": 18,
+            "question": "The format method of the DecimalFormat class returns a double value.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link":"https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html",
+            "score":1
+        },
+        {
+            "questionId": 19,
+            "question": "A method whose sole purpose is to help another method do its job can be declared as private.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link": "https://www.geeksforgeeks.org/private-and-final-methods-in-java/",
+            "score":1
+        },
+        {
+            "questionId": 20,
+            "question": "A mutator method allows a client program to change the state of an object created from the helper class.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link": "https://www.geeksforgeeks.org/instance-methods-in-java/",
+            "score":1
+        },
+        {
+            "questionId": 21,
+            "question": "The following Java statement is valid: char Char = 'L';",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link": "https://www.geeksforgeeks.org/strings-in-java/",
+            "score":1
+        },
+        {
+            "questionId": 22,
+            "question": "A declared Java variable must be assigned a value before it can be used, otherwise, the compiler produces a compile-time error.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link": "https://www.geeksforgeeks.org/g-fact-31-java-is-strictly-pass-by-value/",
+            "score":1
+        },
+        {
+            "questionId": 23,
+            "question": "The following statement outputs NAN: System.out.print(Math.sqrt(-4));",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/java-sqrt-method-examples/",
+            "score":1
+        },
+        {
+            "questionId": 24,
+            "question": "Variables declared with private visibility are accessible only to the methods of the class in which they are declared.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link": "https://www.geeksforgeeks.org/variables-in-java/",
+            "score":1
+        },
+        {
+            "questionId": 25,
+            "question": "The following Java statement is syntactically valid: double val = new Double(23.5);",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link":"https://www.geeksforgeeks.org/java-basic-syntax/?ref=lbp",
+            "score":1
+        },
+        {
+            "questionId": 26,
+            "question": "The following Java statement results in a compile-time error: System.out.println('///');",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/difference-between-compile-time-errors-and-runtime-errors/",
+            "score":1
+        },
+        {
+            "questionId": 27,
+            "question": "The following method definition results in a compile-time error: private void foo() {int output=3; return output;}",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link": "https://www.geeksforgeeks.org/difference-between-compile-time-errors-and-runtime-errors/",
+            "score":1
+        },
+        {
+            "questionId": 28,
+            "question": "Both the static random() method of the Math class and the static nextFloat() method of the Random class generate a random floating point value between 0 (inclusive) and 1 (exclusive).",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/static-methods-vs-instance-methods-java/",
+            "score":1
+        },
+        {
+            "questionId": 29,
+            "question": "In the presence of a logical error in your Java program, your code compiles correctly and executes without any complaint from the interpreter.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link":"https://www.geeksforgeeks.org/errors-v-s-exceptions-in-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 30,
+            "question": "A mutator provides read only access to one of the instance variables of a class",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link":"https://www.geeksforgeeks.org/overriding-accessors-and-mutators-in-scala/",
+            "score":1
+        },
+        {
+            "questionId": 31,
+            "question": "Unboxing is the automatic conversion from a wrapper class to its corresponding primitive data type.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link": "https://www.geeksforgeeks.org/autoboxing-unboxing-java/",
+            "score":1
+        },
+        {
+            "questionId": 32,
+            "question": "The following statement outputs 2.0: System.out.print(Math.pow(4, 1/2)); ",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/math-pow-method-in-java-with-example/",
+            "score":1
+        },
+        {
+            "questionId": 33,
+            "question": "The following Java statement is valid: int true = 3;",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/java-basic-syntax/?ref=lbp",
+            "score":1
+        },
+        {
+            "questionId": 34,
+            "question": "The following Java statement is valid: Boolean flag = false;",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link": "https://www.geeksforgeeks.org/operators-in-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 35,
+            "question": "continue cannot be used in a switch selection statement.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link": "https://www.geeksforgeeks.org/switch-statement-in-java/",
+            "score":1
+        },
+        {
+            "questionId": 36,
+            "question": "The cases of a switch statement are not mutually exclusive by default, in the sense that without a break statement, more than one switch case can be executed at a time.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link": "https://www.geeksforgeeks.org/switch-statement-in-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 37,
+            "question": "Not including a 'throws IOException' as part of the header of a main method that reads data from a file results in a run-time error.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link":"https://www.geeksforgeeks.org/different-ways-reading-text-file-java/",
+            "score":2
+        },
+        {
+            "questionId": 38,
+            "question": "The default case is optional in a switch selection statement.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link": "https://www.geeksforgeeks.org/switch-statement-in-java/",
+            "score":2
+        },
+        {
+            "questionId": 39,
+            "question": "Methods with private visibility, also known as support (service) methods, can be directly accessed by client programs.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/private-and-final-methods-in-java/",
+            "score":1
+        },
+        {
+            "questionId": 40,
+            "question": "PI is a static method of the Math class.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/java-lang-math-class-in-java-set-1/",
+            "score":1
+        },
+        {
+            "questionId": 41,
+            "question": "A class implementing a given interface is not restricted from having methods that are not included in that interface.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link": "https://www.geeksforgeeks.org/interfaces-in-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 42,
+            "question": "A class implementing a given interface is not restricted from having methods that are not included in that interface.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link": "https://www.geeksforgeeks.org/interfaces-in-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 43,
+            "question": "Consider a static method called foo that is defined inside a class called Foo. foo is allowed to reference the non-static variables of Foo once a Foo object has been created.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/static-methods-vs-instance-methods-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 44,
+            "question": "The String class implements the Java predefined Comparable interface.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link":"https://www.geeksforgeeks.org/comparator-interface-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 45,
+            "question": "The header of a method that uses a Scanner to read data from an input File must include the following clause: throws IOException.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link": "https://www.geeksforgeeks.org/scanner-class-in-java/",
+            "score":1
+        },
+        {
+            "questionId": 46,
+            "question": "The Scanner class is an iterator that implements the Java predefined Iterator interface. The latter interface includes two methods, namely nextInt() and hasNext().",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link":"https://www.geeksforgeeks.org/scanner-class-in-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 47,
+            "question": "The break statement is needed in the last case preceding the default case in a switch selection statement.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link": "https://www.geeksforgeeks.org/switch-statement-in-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 48,
+            "question": "In Java, it is possible to create an infinite loop out of while and do ... while loops, but not out of for loops.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/loops-in-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 49,
+            "question": "The statement while(a <= b) {a++; b--;} will do the same thing a the statement while(!(b<a)) {b--; a++;}.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link":"https://www.geeksforgeeks.org/operators-in-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 50,
+            "question": "When an 'if' statement has an 'else' clause associated with it, the body of the 'if' must be delineated with a pair of curly braces.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/decision-making-javaif-else-switch-break-continue-jump/",
+            "score":1
+        },
+
+        {
+            "questionId": 51,
+            "question": "The contents of two strings can be compared using either the equality operator (==) or the equals() method of the String class.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/strings-in-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 52,
+            "question": "An if-else statement could be written using two if statements without an else.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link": "https://www.geeksforgeeks.org/decision-making-javaif-else-switch-break-continue-jump/",
+            "score":1
+        },
+
+        {
+            "questionId": 53,
+            "question": "The following if statement: if(name.length() =3) can be used to check if the length of the String variable called name is 3 characters long.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/decision-making-javaif-else-switch-break-continue-jump/",
+            "score":1
+        },
+
+        {
+            "questionId": 54,
+            "question": "Code in Java that uses the && logical operator could be rewritten without && using an additional if statement instead.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link":"https://www.geeksforgeeks.org/operators-in-java/",
+            "score":1
+        },
+        {
+            "questionId": 55,
+            "question": "A code in Java that uses the || logical operator can be rewritten without ||, using an additional if statement instead.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link": "https://www.geeksforgeeks.org/operators-in-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 56,
+            "question": "Any code that can be written with multiple if-else statements can also be written using a switch statement.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/switch-statement-in-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 57,
+            "question": "The following can be used to check to see if the value of variable x is between 10 (inclusive) and 20 (exclusive): if(!(x<10 || x>20))",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link": "https://www.geeksforgeeks.org/operators-in-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 58,
+            "question": "If a class implements Comparable, then an object created from that class can invoke the compareTo method.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link": "https://www.geeksforgeeks.org/comparable-vs-comparator-in-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 59,
+            "question": "Private instance variables can only be directly accessed through code in the class where they are declared.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link":"https://www.geeksforgeeks.org/protected-vs-private-access-modifiers-in-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 60,
+            "question": "A non-static method can access static instance variables.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link": "https://www.geeksforgeeks.org/static-methods-vs-instance-methods-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 61,
+            "question": "In Java, parameters are passed by value. Therefore, changes made to a primitive parameter is permanent and persists after the method is exited.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/g-fact-31-java-is-strictly-pass-by-value/",
+            "score":1
+        },
+
+        {
+            "questionId": 62,
+            "question": "String is an example of a self-dependent class.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"True",
+            "link":"https://www.geeksforgeeks.org/strings-in-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 63,
+            "question": "In Java, overloading makes it possible for two different classes like Scanner and Random to both have a method called nextInt().",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/scanner-class-in-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 64,
+            "question": "A local variable is created when a method is called and then destroyed when the method is exited. An instance variable is created when the class containing it is instantiated and then destroyed when the program using that instance of the class terminates its execution.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link":"https://www.geeksforgeeks.org/variables-in-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 65,
+            "question": "A code that loops over a predetermined number of times is best repeated using a counter variable with a while loop.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link":"https://www.geeksforgeeks.org/loops-in-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 66,
+            "question": "In Java, every if statement must use curly braces {}, otherwise the code will not compile.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/java-if-else-statement-with-examples/",
+            "score":1
+        },
+
+        {
+            "questionId": 67,
+            "question": "Java methods are private by default, which means that when no visibility modifier is applied to a method, it cannot be called from outside of the class that contains it.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/methods-in-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 68,
+            "question": "A valid Java arithmetic expression with no parentheses is always evaluated from left to right.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/arithmetic-expression-evalution/",
+            "score":1
+        },
+
+        {
+            "questionId": 69,
+            "question": "Empty parentheses following a method name in a method declaration indicate that the method does not produce any value after performing its task.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/check-for-balanced-parentheses-in-an-expression/",
+            "score":1
+        },
+
+        {
+            "questionId": 70,
+            "question": "Floating-point values that appear in source code are known as floating-point literals and are of type float by default.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/java-lang-float-class-in-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 71,
+            "question": "Multiple System.out.println statements in a Java program could result in a single line of output.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link":"https://www.geeksforgeeks.org/system-out-println-in-java/",
+            "score":1
+        },
+
+        {
+            "questionId": 72,
+            "question": "If you don’t implement the toString() method in a class, then using an instance of that class in a System.out.println() statement results in a number.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/object-tostring-method-in-java/",
+            "score":1
+        },
+        {
+            "questionId": 73,
+            "question": "Consider a String variable called str. The following Java statement: str.length; returns the total number of characters stored in str.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/strings-in-java/",
+            "score":1
+        },
+        {
+            "questionId": 74,
+            "question": "Consider a String variable called str. The following Java statement: str.substring(1, length()); would return a substring composed of all the characters in str except the first and last characters.",
+            "possibleAnswers":["True", "False"],
+            "correctAnswer":"False",
+            "link": "https://www.geeksforgeeks.org/strings-in-java/",
+            "score":1
+        }
+
+        
+    
+
+
+]

@@ -1,0 +1,189 @@
+[
+    {
+        "questionId": 200,
+        "question": "The .class extension on a file means that the file:",
+        "possibleAnswers":
+        ["a. contains Java source code", 
+        "b. is produced by the Java interpreter",
+        "c. is produced by the Java compiler",
+        "d. Both (a) and (c)"],
+        "correctAnswer":"c. is produced by the Java compiler",
+        "link": "https://www.geeksforgeeks.org/java-class-file/",
+        "score": 1
+    },
+
+    {
+        "questionId": 201,
+        "question": "Which of the following is not an instantiation statement?",
+        "possibleAnswers":["a. String str = new String('Java is fun');", "b. String str = 'Java is fun';", "c. All of the above", "d. None of the above"],
+        "correctAnswer": "d. None of the above",
+        "link": "https://www.javatpoint.com/instantiation-in-java",
+        "score": 1
+    },
+
+    {
+        "questionId": 202,
+        "question": "What type of methods allows a client of a class to access the value of a private instance variable?",
+        "possibleAnswers":["a. Mutator methods", "b. Getter methods", "c. Both of the above", "d. Constructor methods"],
+        "correctAnswer": "b. Getter methods",
+        "link": "https://examples.javacodegeeks.com/getters-and-setters-java-example/",
+        "score":1
+    },
+
+    {
+        "questionId": 203,
+        "question": "Which of the following is not in the Math class?",
+        "possibleAnswers":["a. PI()", "b. abs(int value)", "c. ceil(double value)", "d. None of the above"],
+        "correctAnswer": "a. PI()",
+        "link": "https://www.geeksforgeeks.org/java-lang-math-class-in-java-set-1/",
+        "score":1
+    },
+
+    {
+        "questionId": 204,
+        "question": "Which of the following statements is false?",
+        "possibleAnswers":["a. If a method does not return a value, then the return type in its header can be omitted", "b. Forgetting to return a value from a method that has a return type different than void is a compile-time error", "c. Using an uninitialized variable leads to a syntax error", "d. Both (a) and (b) are false"],
+        "correctAnswer": "a. If a method does not return a value, then the return type in its header can be omitted",
+        "link": "https://www.geeksforgeeks.org/methods-in-java/",
+        "score":1
+
+    },
+
+    {
+        "questionId": 205,
+        "question": "Which of the following refers to the automatic conversion from a wrapper class to its corresponding primitive data type?",
+        "possibleAnswers":["a. Aliasing", "b. Casting", "c. Unboxing", "d. Autoboxing"],
+        "correctAnswer": "c. Unboxing",
+        "link": "https://www.geeksforgeeks.org/autoboxing-unboxing-java/",
+        "score":1
+
+    },
+    {
+        "questionId": 206,
+        "question": "Of the following types, which one cannot store the value of Math.sqrt(4)?",
+        "possibleAnswers":["a. int", "b. float", "c. double", "d. Both (a) and (b)"],
+        "correctAnswer": "d. Both (a) and (b)",
+        "link": "https://www.geeksforgeeks.org/java-lang-math-class-in-java-set-1/",
+        "score":1
+
+    },
+    {
+        "questionId": 207,
+        "question": "A variable whose scope is restricted to a method is known as:",
+        "possibleAnswers":["a. Parameter", "b. instance variable", "c. local variable", "d. None of the above"],
+        "correctAnswer": "c. local variable",
+        "link": "https://www.geeksforgeeks.org/variable-scope-in-java/",
+        "score":1
+
+    },
+    {
+        "questionId": 208,
+        "question": "Which of the following are false:",
+        "possibleAnswers":["a. By convention, class names begin with an uppercase letter, but methods and variables begin with a lowercase letter.", "b. Instance variables can be declared anywhere inside a class.", "c. Instance variables exist before methods are called on objects, while the methods are executing and after the methods complete execution."],
+        "correctAnswer": "b. Instance variables can be declared anywhere inside a class.",
+        "link": "https://www.geeksforgeeks.org/variables-in-java/",
+        "score":1
+
+    },
+    {
+        "questionId": 209,
+        "question": "Which of the following are true:",
+        "possibleAnswers":["a. Each object of the class contains the class’s instance variables.", "b. Most instance variable declarations are preceded with the keyword public, which is a visibility modifier.", "c. Variables or methods declared with private visibility are accessible only to the methods of the class in which they are declared.", "d. Both (a) and (c)"],
+        "correctAnswer": "d. Both (a) and (c)",
+        "link": "https://www.geeksforgeeks.org/variables-in-java/",
+        "score":1
+
+    },
+    {
+        "questionId": 210,
+        "question": "Which of the following statements are false:",
+        "possibleAnswers":["a. The method’s return type specifies the type of data returned to the calling method.", "b. No parentheses following a method name indicate that the method does not require any parameters to perform its task.", "c. Classes often provide private methods to allow the class’s client to set or get public instance variables.", "d. Both (b) and (c)"],
+        "correctAnswer": "d. Both (b) and (c)",
+        "link": "https://www.geeksforgeeks.org/return-keyword-java/",
+        "score":1
+
+    },
+    {
+        "questionId": 211,
+        "question": "Which of the following are false",
+        "possibleAnswers":["a. A return type of null indicates that a method will perform a task but will not return any information.", "b. A method’s parameters are local variables of the method, in the sense that they can be used outside the method.", "c. Every method’s body is delimited by a left and right braces { and }.", "d. Both (a) and (b)"],
+        "correctAnswer": "d. Both (a) and (b)",
+        "link": "https://www.geeksforgeeks.org/return-keyword-java/",
+        "score":1
+
+    },
+    {
+        "questionId": 212,
+        "question": "Which of the following statements correctly increments the salary of e1 by 100?",
+        "possibleAnswers":["a. e1.getSalary() += 100;", "b. e1.setSalary(e1.getSalary()+100);", "c. Both of the above", "d. None of the above"],
+        "correctAnswer": "b. e1.setSalary(e1.getSalary()+100);",
+        "link": "https://www.geeksforgeeks.org/getter-and-setter-in-java/" ,
+        "score":1
+
+    },
+    {
+        "questionId": 213,
+        "question": "Which of the following correctly computes the square root of the salary of e2?",
+        "possibleAnswers":["a. Math.sqrt(e2.getSalary());", "b. Math.pow(e2.getSalary(),1/2);", "c. Both of the above", "d. None of the above"],
+        "correctAnswer": "a. Math.sqrt(e2.getSalary());",
+        "link": "https://www.geeksforgeeks.org/java-lang-math-class-in-java-set-1/",
+        "score":1
+
+    },
+    {
+        "questionId": 214,
+        "question": "Given: String word1='FOREVER', word2='4EVER', word3='For'; which of the following Boolean expressions evaluates to true?",
+        "possibleAnswers":["a. (word1.compareTo(word2)>0) && (word1.compareTo(word3)<0)", "b. (word2.compareTo(word3)<0)&&(word3.compareTo(word1)>0)", "c. All of the above", "d. None of the above"],
+        "correctAnswer": "c. All of the above",
+        "link": "https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwinhJj27L_0AhUCDuwKHbDqBeIQFnoECAUQAQ&url=https%3A%2F%2Fwww.geeksforgeeks.org%2Fstrings-in-java%2F&usg=AOvVaw0A2ExR4gU2Ve5r5_fZeWyp",
+        "score":1
+
+    },
+    {
+        "questionId": 215,
+        "question": "Which of the following expressions checks to see whether the first 4 characters in the String variable called str form the word “here”?",
+        "possibleAnswers":["a. str.substring(0, 3).equals(“here”)", "b. str.substring(0,4).compareTo(“here”)==0", "c. All of the above"],
+        "correctAnswer": "b. str.substring(0,4).compareTo(“here”)==0",
+        "link": "https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwinhJj27L_0AhUCDuwKHbDqBeIQFnoECAUQAQ&url=https%3A%2F%2Fwww.geeksforgeeks.org%2Fstrings-in-java%2F&usg=AOvVaw0A2ExR4gU2Ve5r5_fZeWyp",
+        "score":1
+
+    },
+    {
+        "questionId": 216,
+        "question": "Which of the following represents the header of a constructor of the FileWriter class?",
+        "possibleAnswers":["a. FileWriter(BufferedWriter)", "b. FileWriter(PrintWriter)", "c. FileWriter(String)", "d. FileWriter(Scanner)"],
+        "correctAnswer": "c. FileWriter(String)",
+        "link": "https://www.geeksforgeeks.org/filewriter-class-in-java/",
+        "score":1
+
+    },
+    {
+        "questionId": 217,
+        "question": "Which of the following methods can be used to change the delimiter of the Scanner class?",
+        "possibleAnswers":["a. setDelimiter", "b. changeDelimiter", "c. useDelimiter", "d. modifyDelimiter"],
+        "correctAnswer": "c. useDelimiter",
+        "link": "https://www.geeksforgeeks.org/scanner-usedelimiter-method-in-java-with-examples/",
+        "score":1
+
+    },
+    {
+        "questionId": 218,
+        "question": "Which of the following can be used to exit the body of a loop immediately and resume execution at the statement immediately following the loop?",
+        "possibleAnswers":["a. continue", "b. return", "c. exit", "d. None of the above"],
+        "correctAnswer": "d. None of the above",
+        "link": "https://www.geeksforgeeks.org/break-and-continue-statement-in-java/",
+        "score":1
+
+    },
+    {
+        "questionId": 219,
+        "question": "Which of the following is an interface?",
+        "possibleAnswers":["a. Iterator", "b. Comparable", "c. Both of the above", "d. None of the above"],
+        "correctAnswer": "c. Both of the above",
+        "link": "https://www.geeksforgeeks.org/interfaces-in-java/",
+        "score":1
+
+    }
+
+    
+]
