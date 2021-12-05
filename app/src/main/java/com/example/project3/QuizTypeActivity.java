@@ -1,6 +1,7 @@
 package com.example.project3;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,15 +17,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
+import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,14 +29,22 @@ import java.util.Random;
 public class QuizTypeActivity extends AppCompatActivity
         {
 
-    public Question[] generatedQuestions;
-
+    public ArrayList<Question> generatedQuestions;
     ListView listView;
     ArrayList<String> list;
     ArrayAdapter adapter;
     String[] quizTypes = {"MCQ","True or False","Fill in the blanks"};
     int nbOfQuest=10;
     String quizType;
+
+    private void switchActivities(ArrayList<Question> generatedQuestions) {
+        Intent switchActivityIntent = new Intent(this, QuizActivity.class);
+        Bundle args = new Bundle();
+        args.putSerializable("ARRAYLIST",(Serializable)generatedQuestions);
+        switchActivityIntent.putExtra("BUNDLE",args);
+
+        startActivity(switchActivityIntent);
+    }
 
 
     @Override
@@ -95,7 +99,8 @@ public class QuizTypeActivity extends AppCompatActivity
                 }
                 try {
                     generatedQuestions = generate_questions(questionsJson);
-                    Toast.makeText(QuizTypeActivity.this, "Generated questions", Toast.LENGTH_SHORT).show();
+                    switchActivities(generatedQuestions);
+
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -129,9 +134,9 @@ public class QuizTypeActivity extends AppCompatActivity
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private Question[] generate_questions(List<Question> questions) throws JSONException {
+    private ArrayList<Question> generate_questions(List<Question> questions) throws JSONException {
 
-        Question[] generatedQuestionPerType = new Question[nbOfQuest];
+        ArrayList<Question> generatedQuestionPerType = new ArrayList<Question>();
         Gson gson = new Gson();
         Random rand = new Random();
 
@@ -139,11 +144,8 @@ public class QuizTypeActivity extends AppCompatActivity
             int int_random = rand.nextInt(questions.size());
             Object curr_quest = questions.get(int_random);
             Question ques = (Question) curr_quest;
-            generatedQuestionPerType[i] = ques;
+            generatedQuestionPerType.add(ques);
         }
-        //String question_print = generatedQuestionPerType[0].getQuestion();
-        //Toast.makeText(QuizTypeActivity.this, question_print, Toast.LENGTH_SHORT).show();
-        //Toast.makeText(QuizTypeActivity.this, "Selected: "+  selected_type, Toast.LENGTH_SHORT).show();
         return generatedQuestionPerType;
 
 

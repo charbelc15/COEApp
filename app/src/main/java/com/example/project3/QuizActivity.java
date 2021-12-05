@@ -2,6 +2,7 @@ package com.example.project3;
 
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
 
 public class QuizActivity extends AppCompatActivity
         implements View.OnClickListener {
@@ -24,25 +27,24 @@ public class QuizActivity extends AppCompatActivity
     private int correct = 0;
     // to keep current question track
     private int currentQuestionIndex = 0;
+    private Question[] questions;
 
-    private Question[] questionBank = new Question[] {
-            // array of objects of class Question
-            // providing questions from string
-            // resource and the correct ans
-            //new Question(R.string.a, true),
-            //new Question(R.string.b, true),
-            //new Question(R.string.c, false),
-            //new Question(R.string.d, true),
-            //new Question(R.string.e, false),
-            //new Question(R.string.f, false),
-
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.quiz_layout);
+        Intent questionsIntent = getIntent();
+        Bundle args = questionsIntent.getBundleExtra("BUNDLE");
+        ArrayList<Question> questions = (ArrayList<Question>) args.getSerializable("ARRAYLIST");
+
+        //Example: getting first question and showing it in Toast to see the quiz question
+        String first = questions.get(0).getQuestion();
+        Toast.makeText(QuizActivity.this, first, Toast.LENGTH_SHORT).show();
+
+
+
         // setting up the buttons
         // associated with id
         /*falseButton = findViewById(R.id.false_button);
