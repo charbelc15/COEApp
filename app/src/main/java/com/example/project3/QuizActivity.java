@@ -29,7 +29,6 @@ public class QuizActivity extends AppCompatActivity
     private int currentQuestionIndex = 0;
     private Question[] questions;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {

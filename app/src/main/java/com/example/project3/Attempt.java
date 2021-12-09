@@ -6,7 +6,6 @@ import androidx.annotation.RequiresApi;
 import java.time.LocalDate;
 import java.util.List;
 
-
 public class Attempt {
     private final LocalDate date;
     private final int quizType;

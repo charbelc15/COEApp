@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView news = this.findViewById(R.id.news);
         ImageView quiz = this.findViewById(R.id.quiz);
         ImageView headquarters = this.findViewById(R.id.headquarters);
+        ImageView attempts = this.findViewById(R.id.attemptPageImageView);
 
         quiz.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -45,6 +46,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // hook listener for attempts page
+        attempts.setOnClickListener( v ->
+        {
+            waterSound.start();
+            Intent intent = new Intent( MainActivity.this , AttemptsActivity.class );
+            startActivity(intent);
+        });
+
+
 
 
     }
