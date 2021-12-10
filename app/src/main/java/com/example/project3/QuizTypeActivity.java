@@ -38,10 +38,11 @@ public class QuizTypeActivity extends AppCompatActivity
     int nbOfQuest=10;
     String quizType;
 
-    private void switchActivities(ArrayList<Question> generatedQuestions) {
+    private void switchActivities(ArrayList<Question> generatedQuestions, String selectedType) {
         Intent switchActivityIntent = new Intent(this, QuizActivity.class);
         Bundle args = new Bundle();
         args.putSerializable("ARRAYLIST",(Serializable)generatedQuestions);
+        args.putString("TYPE", selectedType);
         switchActivityIntent.putExtra("BUNDLE",args);
 
         startActivity(switchActivityIntent);
@@ -62,9 +63,9 @@ public class QuizTypeActivity extends AppCompatActivity
             list.add(quizTypes[i]);
 
         }
-        listView.setChoiceMode(listView.CHOICE_MODE_SINGLE);
+//        listView.setChoiceMode(listView.CHOICE_MODE_SINGLE);
 
-        adapter = new ArrayAdapter(QuizTypeActivity.this,android.R.layout.simple_list_item_single_choice,list);
+        adapter = new ArrayAdapter(QuizTypeActivity.this,android.R.layout.simple_list_item_1,list);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -99,9 +100,7 @@ public class QuizTypeActivity extends AppCompatActivity
                 }
                 try {
                     generatedQuestions = generate_questions(questionsJson);
-                    switchActivities(generatedQuestions);
-
-
+                    switchActivities(generatedQuestions, selected_type);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

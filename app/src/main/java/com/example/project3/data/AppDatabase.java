@@ -18,6 +18,9 @@ public abstract class AppDatabase extends RoomDatabase {
     public static AppDatabase db;
 
     public static void initDB(Context ctx) {
-        db = Room.databaseBuilder(ctx, AppDatabase.class, "quiz-database").build();
+        db = Room
+                .databaseBuilder(ctx, AppDatabase.class, "quiz-database")
+                .allowMainThreadQueries()
+                .build();
     }
 }

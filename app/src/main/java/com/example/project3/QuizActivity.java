@@ -13,193 +13,111 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 
+import com.example.project3.data.AppDatabase;
+import com.example.project3.data.Attempt;
 import com.example.project3.data.Question;
+import com.example.project3.data.QuestionResponse;
+import com.example.project3.fragments.FBFragment;
+import com.example.project3.fragments.MCQFragment;
+import com.example.project3.fragments.QuizFragment;
+import com.example.project3.fragments.TFFragment;
+import com.google.android.material.snackbar.Snackbar;
 
+import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class QuizActivity extends AppCompatActivity
-        implements View.OnClickListener {
+public class QuizActivity extends AppCompatActivity {
     // setting up things
-    private Button falseButton;
-    private Button trueButton;
-    private ImageView prevButton;
-    private ImageView Image;
-    private TextView questionTextView;
-    private int correct = 0;
+    private TextView questionNbr;
+    private TextView userScore;
+    private View constraintLayout;
+
+    private Attempt currentAttempt;
+    private String questionsType;
+
     // to keep current question track
+    Class<? extends QuizFragment> fragmentType;
     private int currentQuestionIndex = 0;
-    private Question[] questions;
+    private ArrayList<Question> questions;
+    private ArrayList<QuestionResponse> responses;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.quiz_layout);
+
+        questionNbr = findViewById(R.id.textQNbr);
+        userScore = findViewById(R.id.textScore);
+        constraintLayout = findViewById(R.id.quizLayout);
+
         Intent questionsIntent = getIntent();
         Bundle args = questionsIntent.getBundleExtra("BUNDLE");
-        ArrayList<Question> questions = (ArrayList<Question>) args.getSerializable("ARRAYLIST");
+        questions = (ArrayList<Question>) args.getSerializable("ARRAYLIST");
+        questionsType = args.getString("TYPE");
 
-        //Example: getting first question and showing it in Toast to see the quiz question
-        String first = questions.get(0).getQuestion();
-        Toast.makeText(QuizActivity.this, first, Toast.LENGTH_SHORT).show();
+        currentAttempt = new Attempt();
+        currentAttempt.setQuizType(questionsType);
+        responses = new ArrayList<>();
 
-
-
-        // setting up the buttons
-        // associated with id
-        /*falseButton = findViewById(R.id.false_button);
-        trueButton = findViewById(R.id.true_button);
-        prevButton = findViewById(R.id.prev_button);
-        // register our buttons to listen to
-        // click events
-        questionTextView
-                = findViewById(R.id.answer_text_view);
-        Image = findViewById(R.id.myimage);
-        falseButton.setOnClickListener(this);
-        trueButton.setOnClickListener(this);
-        prevButton.setOnClickListener(this);*/
-    }
-
-    @SuppressLint("SetTextI18n")
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    @Override
-    public void onClick(View v)
-    {
-        // checking which button is
-        // clicked by user
-        // in this case user choose false
-        /*switch (v.getId()) {
-            case R.id.false_button:
-                checkAnswer(false);
-                // go to next question
-                // limiting question bank range
-                if (currentQuestionIndex < 7) {
-                    currentQuestionIndex
-                            = currentQuestionIndex + 1;
-                    // we are safe now!
-                    // last question reached
-                    // making buttons
-                    // invisible
-                    if (currentQuestionIndex == 6) {
-                        questionTextView.setText(getString(
-                                R.string.correct, correct));
-                        prevButton.setVisibility(
-                                View.INVISIBLE);
-                        trueButton.setVisibility(
-                                View.INVISIBLE);
-                        falseButton.setVisibility(
-                                View.INVISIBLE);
-                        if (correct > 3)
-
-                            questionTextView.setText(
-                                    "CORRECTNESS IS " + correct
-                                            + " "
-                                            + "OUT OF 6");
-                            // showing correctness
-                        else
-                            Image.setImageResource(
-                                    R.drawable.resu);
-
-                        // if correctness < 3 we will be showing sad emoji
-                    }
-                    else {
-                        updateQuestion();
-                    }
-                }
+        switch (questionsType) {
+            case "MCQ":
+                fragmentType = MCQFragment.class;
                 break;
-
-            case R.id.true_button:
-                checkAnswer(true);
-                // go to next question
-                // limiting question bank range
-                if (currentQuestionIndex < 7) {
-                    currentQuestionIndex = currentQuestionIndex + 1;
-                    // we are safe now!
-                    // last question reached
-                    // making buttons
-                    // invisible
-                    if (currentQuestionIndex == 6) {
-                        questionTextView.setText(getString(R.string.correct, correct));
-                        prevButton.setVisibility(View.INVISIBLE);
-                        trueButton.setVisibility(View.INVISIBLE);
-                        falseButton.setVisibility(View.INVISIBLE);
-
-                        if (correct > 3) {
-                            questionTextView.setText("CORRECTNESS IS " + correct + " " + "OUT OF 6");
-                            //Image.setImageResource(R.drawable.happy);
-                            // showing correctness
-                        }
-                        else
-                            Image.setImageResource(R.drawable.resu);
-
-                        // if correctness < 3 we will be showing sad emoji
-                    }
-                    else {
-                        updateQuestion();
-                    }
-                }
+            case "True or False":
+                fragmentType = TFFragment.class;
                 break;
-
-            case R.id.prev_button:
-                if (currentQuestionIndex > 0) {
-                    currentQuestionIndex = (currentQuestionIndex - 1) % questionBank.length;
-                    updateQuestion();
-                }
-        } */
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    private void updateQuestion()
-    {/*
-        Log.d("Current", "onClick: " + currentQuestionIndex);
-
-        questionTextView.setText(questionBank[currentQuestionIndex].getAnswerResId());
-        // setting the textview with new question
-        switch (currentQuestionIndex) {
-            case 1:
-                // setting up image for each
-                // question
-                Image.setImageResource(R.drawable.f1);
+            case "Fill in the blanks":
+                fragmentType = FBFragment.class;
                 break;
-            case 2:
-                Image.setImageResource(R.drawable.f1);
-                break;
-            case 3:
-                Image.setImageResource(R.drawable.f1);
-                break;
-            case 4:
-                Image.setImageResource(R.drawable.f1);
-                break;
-            case 5:
-                Image.setImageResource(R.drawable.f1);
-                break;
-            case 6:
-                Image.setImageResource(R.drawable.f1);
-                break;
-            case 7:
-                Image.setImageResource(R.drawable.f1);
-                break;
-        }
-    }
-    private void checkAnswer(boolean userChooseCorrect)
-    {
-        boolean answerIsTrue = questionBank[currentQuestionIndex].isAnswerTrue();
-        // getting correct ans of current question
-        int toastMessageId;
-        // if ans matches with the
-        // button clicked
-        if (userChooseCorrect == answerIsTrue) {
-            toastMessageId = R.string.correct_answer;
-            correct++;
-        }
-        else {
-            // showing toast
-            // message correct
-            toastMessageId = R.string.wrong_answer;
+            default:
+                fragmentType = MCQFragment.class; // should never happen
         }
 
-        Toast.makeText(QuizActivity.this, toastMessageId, Toast.LENGTH_SHORT).show(); */
+       if (savedInstanceState == null) {
+           setQuestionFragment(0);
+       }
+
+       updateTexts();
     }
+
+    private void setQuestionFragment(int questionIndex) {
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("question", questions.get(questionIndex));
+
+        getSupportFragmentManager().beginTransaction()
+                .setReorderingAllowed(true)
+                .replace(R.id.fragmentContainerView, fragmentType, bundle)
+                .commit();
+    }
+
+    private void updateTexts() {
+        userScore.setText("Score: " + currentAttempt.getCumulativeScore());
+        questionNbr.setText("Question " + (currentQuestionIndex+1) + "/" + questions.size());
+    }
+
+    public void submitQuestionAnswer(String answer) {
+        Question current = questions.get(currentQuestionIndex);
+
+        if (current.getCorrectAnswer().equalsIgnoreCase(answer)) {
+            currentAttempt.addScore(current.getScore());
+        }
+        responses.add(new QuestionResponse(current.getQuestionId(), answer));
+
+
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.size()) {
+            setQuestionFragment(currentQuestionIndex);
+            updateTexts();
+        } else {
+            // done with quiz!
+            AppDatabase.db.getQuizDao().insertAttemptWithResponses(currentAttempt, responses);
+            Snackbar.make(constraintLayout, "Quiz Done!", Snackbar.LENGTH_SHORT).show();
+            finish();
+        }
+    }
+
 }

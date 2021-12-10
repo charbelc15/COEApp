@@ -14,10 +14,12 @@ public class QuestionResponse {
 
     public long attemptId;
 
-    public QuestionResponse(int questionId, long responseId, String selectedAnswer){
-        this.questionId = questionId;
-        this.responseId = responseId;
-        this.selectedAnswer = selectedAnswer;
+    public QuestionResponse() {
 
+    }
+
+    public QuestionResponse(int questionId, String selectedAnswer){
+        this.questionId = questionId;
+        this.selectedAnswer = selectedAnswer;
     }
 }

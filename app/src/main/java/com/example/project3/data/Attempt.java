@@ -14,30 +14,22 @@ import java.util.List;
 @Entity(tableName = "attempts")
 public class Attempt {
     private Instant date;
-    private int quizType;
+    private String quizType;
     private double cumulativeScore;
 
     @PrimaryKey(autoGenerate = true)
     private long attemptId;
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
 
     public Attempt() {
-
-    }
-
-    public Attempt(int attemptId, int quizType, double cumulativeScore){
-        this.date = Instant.now();
-        this.quizType = quizType;
-        this.cumulativeScore = cumulativeScore;
-        this.attemptId = attemptId;
+        date = Instant.now();
     }
 
     public Instant getDate() {
         return date;
     }
 
-    public int getQuizType() {
+    public String getQuizType() {
         return quizType;
     }
 
@@ -54,7 +46,7 @@ public class Attempt {
         this.date = date;
     }
 
-    public void setQuizType(int quizType) {
+    public void setQuizType(String quizType) {
         this.quizType = quizType;
     }
 
@@ -64,5 +56,9 @@ public class Attempt {
 
     public void setAttemptId(long attemptId) {
         this.attemptId = attemptId;
+    }
+
+    public void addScore(double score) {
+        this.cumulativeScore += score;
     }
 }
