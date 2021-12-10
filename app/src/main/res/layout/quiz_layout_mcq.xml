@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Using linear layout with vertical orientation and center gravity -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:gravity="center"
+    tools:context=".QuizActivity">
+
+    <!--ImageView used for showing pictures along with questions-->
+
+    <!--TextView used for showing questions on screen-->
+    <TextView
+        android:id="@+id/answer_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:padding="10dp"
+        android:text="@string/a"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnA"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Button"
+        app:layout_constraintEnd_toStartOf="@+id/btnB"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answer_text_view" />
+
+    <Button
+        android:id="@+id/btnB"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="@+id/btnA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnA"
+        app:layout_constraintTop_toTopOf="@+id/btnA" />
+
+    <Button
+        android:id="@+id/btnC"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Button"
+        app:layout_constraintEnd_toStartOf="@+id/btnD"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnA" />
+
+    <Button
+        android:id="@+id/btnD"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="@+id/btnC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnC"
+        app:layout_constraintTop_toTopOf="@+id/btnC" />
+
+    <!--Using another LinearLayout for showing buttons
+        in horizontal orientation-->
+
+
+    <!--TrueButton-->
+
+    <!--FalseButton-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

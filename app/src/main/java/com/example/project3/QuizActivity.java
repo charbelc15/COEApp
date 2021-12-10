@@ -14,6 +14,8 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.project3.data.Question;
+
 import java.util.ArrayList;
 
 public class QuizActivity extends AppCompatActivity

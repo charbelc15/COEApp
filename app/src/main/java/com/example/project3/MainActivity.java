@@ -7,12 +7,17 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.project3.data.AppDatabase;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // initialize database
+        AppDatabase.initDB(getApplicationContext());
 
         MediaPlayer waterSound = MediaPlayer.create(this, R.raw.watersound);
         ImageView news = this.findViewById(R.id.news);

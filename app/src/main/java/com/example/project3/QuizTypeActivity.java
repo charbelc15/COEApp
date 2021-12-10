@@ -15,6 +15,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.example.project3.data.Question;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.json.JSONException;
@@ -48,8 +49,7 @@ public class QuizTypeActivity extends AppCompatActivity
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.quiz_type_layout);
 
@@ -112,24 +112,24 @@ public class QuizTypeActivity extends AppCompatActivity
 
     }
 
-            static String getJsonFromAssets(Context context, String fileName) {
-                String jsonString;
-                try {
-                    InputStream is = context.getAssets().open(fileName);
+    static String getJsonFromAssets(Context context, String fileName) {
+        String jsonString;
+        try {
+            InputStream is = context.getAssets().open(fileName);
 
-                    int size = is.available();
-                    byte[] buffer = new byte[size];
-                    is.read(buffer);
-                    is.close();
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
 
-                    jsonString = new String(buffer, "UTF-8");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    return null;
-                }
+            jsonString = new String(buffer, "UTF-8");
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
 
-                return jsonString;
-            }
+        return jsonString;
+    }
 
 
 

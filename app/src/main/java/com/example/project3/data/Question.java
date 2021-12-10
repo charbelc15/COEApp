@@ -1,4 +1,4 @@
-package com.example.project3;
+package com.example.project3.data;
 
 
 import android.os.Parcel;
@@ -24,8 +24,6 @@ public class Question implements Parcelable
         this.correctAnswer = correctAnswer;
         this.link = link;
         this.score = score;
-
-
 
     }
 
