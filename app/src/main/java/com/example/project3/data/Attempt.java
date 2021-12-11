@@ -1,15 +1,9 @@
 package com.example.project3.data;
-import android.os.Build;
 
-import androidx.annotation.RequiresApi;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import com.example.project3.data.Question;
-
 import java.time.Instant;
-import java.time.LocalDate;
-import java.util.List;
 
 @Entity(tableName = "attempts")
 public class Attempt {
@@ -19,7 +13,6 @@ public class Attempt {
 
     @PrimaryKey(autoGenerate = true)
     private long attemptId;
-
 
     public Attempt() {
         date = Instant.now();
