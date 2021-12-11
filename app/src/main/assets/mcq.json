@@ -79,7 +79,7 @@
     {
         "questionId": 208,
         "question": "Which of the following are false:",
-        "possibleAnswers":["a. By convention, class names begin with an uppercase letter, but methods and variables begin with a lowercase letter.", "b. Instance variables can be declared anywhere inside a class.", "c. Instance variables exist before methods are called on objects, while the methods are executing and after the methods complete execution."],
+        "possibleAnswers":["a. By convention, class names begin with an uppercase letter, but methods and variables begin with a lowercase letter.", "b. Instance variables can be declared anywhere inside a class.", "c. Instance variables exist before methods are called on objects, while the methods are executing and after the methods complete execution.", "d. None of the above."],
         "correctAnswer": "b. Instance variables can be declared anywhere inside a class.",
         "link": "https://www.geeksforgeeks.org/variables-in-java/",
         "score":1
@@ -142,7 +142,7 @@
     {
         "questionId": 215,
         "question": "Which of the following expressions checks to see whether the first 4 characters in the String variable called str form the word “here”?",
-        "possibleAnswers":["a. str.substring(0, 3).equals(“here”)", "b. str.substring(0,4).compareTo(“here”)==0", "c. All of the above"],
+        "possibleAnswers":["a. str.substring(0, 3).equals(“here”)", "b. str.substring(0,4).compareTo(“here”)==0", "c. All of the above", "d. None of the Above"],
         "correctAnswer": "b. str.substring(0,4).compareTo(“here”)==0",
         "link": "https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwinhJj27L_0AhUCDuwKHbDqBeIQFnoECAUQAQ&url=https%3A%2F%2Fwww.geeksforgeeks.org%2Fstrings-in-java%2F&usg=AOvVaw0A2ExR4gU2Ve5r5_fZeWyp",
         "score":1

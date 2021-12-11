@@ -14,11 +14,11 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+
+import com.example.project3.data.Question;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import org.json.JSONException;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
@@ -38,10 +38,11 @@ public class QuizTypeActivity extends AppCompatActivity
     int nbOfQuest=10;
     String quizType;
 
-    private void switchActivities(ArrayList<Question> generatedQuestions) {
+    private void switchActivities(ArrayList<Question> generatedQuestions, String selectedType) {
         Intent switchActivityIntent = new Intent(this, QuizActivity.class);
         Bundle args = new Bundle();
         args.putSerializable("ARRAYLIST",(Serializable)generatedQuestions);
+        args.putString("TYPE", selectedType);
         switchActivityIntent.putExtra("BUNDLE",args);
 
         startActivity(switchActivityIntent);
@@ -49,8 +50,7 @@ public class QuizTypeActivity extends AppCompatActivity
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.quiz_type_layout);
 
@@ -63,9 +63,9 @@ public class QuizTypeActivity extends AppCompatActivity
             list.add(quizTypes[i]);
 
         }
-        listView.setChoiceMode(listView.CHOICE_MODE_SINGLE);
+//        listView.setChoiceMode(listView.CHOICE_MODE_SINGLE);
 
-        adapter = new ArrayAdapter(QuizTypeActivity.this,android.R.layout.simple_list_item_single_choice,list);
+        adapter = new ArrayAdapter(QuizTypeActivity.this,android.R.layout.simple_list_item_1,list);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -100,9 +100,7 @@ public class QuizTypeActivity extends AppCompatActivity
                 }
                 try {
                     generatedQuestions = generate_questions(questionsJson);
-                    switchActivities(generatedQuestions);
-
-
+                    switchActivities(generatedQuestions, selected_type);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -113,24 +111,24 @@ public class QuizTypeActivity extends AppCompatActivity
 
     }
 
-            static String getJsonFromAssets(Context context, String fileName) {
-                String jsonString;
-                try {
-                    InputStream is = context.getAssets().open(fileName);
+    static String getJsonFromAssets(Context context, String fileName) {
+        String jsonString;
+        try {
+            InputStream is = context.getAssets().open(fileName);
 
-                    int size = is.available();
-                    byte[] buffer = new byte[size];
-                    is.read(buffer);
-                    is.close();
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
 
-                    jsonString = new String(buffer, "UTF-8");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    return null;
-                }
+            jsonString = new String(buffer, "UTF-8");
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
 
-                return jsonString;
-            }
+        return jsonString;
+    }
 
 
 

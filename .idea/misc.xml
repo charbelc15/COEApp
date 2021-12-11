@@ -17,7 +17,11 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_maps.xml" value="0.20108695652173914" />
         <entry key="app/src/main/res/layout/content_quiz_type.xml" value="0.8790322580645161" />
+        <entry key="app/src/main/res/layout/fragment_quiz.xml" value="0.19583333333333333" />
         <entry key="app/src/main/res/layout/quiz_layout.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/quiz_layout_fb.xml" value="0.36730072463768115" />
+        <entry key="app/src/main/res/layout/quiz_layout_mcq.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/quiz_layout_tf.xml" value="0.19583333333333333" />
         <entry key="app/src/main/res/layout/quiz_type_layout.xml" value="0.1" />
         <entry key="app/src/main/res/layout/quiztype_layout.xml" value="0.25" />
       </map>

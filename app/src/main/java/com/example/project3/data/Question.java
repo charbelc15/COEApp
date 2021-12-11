@@ -1,4 +1,4 @@
-package com.example.project3;
+package com.example.project3.data;
 
 
 import android.os.Parcel;
@@ -16,6 +16,7 @@ public class Question implements Parcelable
     private URL link;
     private final int score;
 
+
     public Question(int questionId, String question, List<String> possibleAnswers, String correctAnswer, URL link, int score) {
         this.questionId = questionId;
         this.question = question;
@@ -23,6 +24,7 @@ public class Question implements Parcelable
         this.correctAnswer = correctAnswer;
         this.link = link;
         this.score = score;
+
     }
 
     protected Question(Parcel in) {
