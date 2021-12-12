@@ -31,4 +31,10 @@ abstract class QuizDao {
         insertAllResponses(responses)
         return attemptId
     }
+
+    @Transaction
+    open fun deleteAllData() {
+        deleteAllAttempts()
+        deleteAllResponses()
+    }
 }

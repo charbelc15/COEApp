@@ -27,4 +27,35 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="fbSubmit">Submit</string>
     <string name="hintAnswer">Answer</string>
+    <string name="toggle_theme">Toggle Theme</string>
+    <string name="settings">Settings</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="theme_category">Theme Settings</string>
+    <string name="pref_auto_theme">Automatically set theme</string>
+    <string name="pref_theme_auto_desc">When checked, app theme will follow device theme settings</string>
+    <string name="pref_manual_theme">Use Dark Mode</string>
+    <string name="pref_theme_title">App Theme</string>
+    <string name="key_theme">APPTHEME</string>
+    <string name="other">Other Settings</string>
+    <string name="pref_db_clea">Clear Database</string>
+
+    <!-- Dialog strings -->
+    <string name="dialog_message">Are you sure you want to clear the database? This will permanently erase all quiz attempts</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">Cancel</string>
 </resources>

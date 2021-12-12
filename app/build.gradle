@@ -64,6 +64,8 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.3.5'
     implementation 'androidx.navigation:navigation-ui:2.3.5'
     implementation 'com.google.code.gson:gson:2.8.9'
+
+    implementation 'androidx.preference:preference:1.1.0'
     //we already have the necessary google services.json file for the following if required:
     //implementation 'androidx.navigation:navigation-fragment:2.3.2'
     //implementation 'androidx.navigation:navigation-ui:2.3.2'

@@ -6,150 +6,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp" />
-
-    <ImageView
-        android:id="@+id/news"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="48dp"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/quiz"
-        app:layout_constraintHorizontal_bias="0.447"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/news" />
-
     <ImageView
         android:id="@+id/quiz"
         android:layout_width="125dp"
         android:layout_height="125dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/quiz" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="145dp"
-        android:layout_height="24dp"
-        android:layout_marginBottom="396dp"
-        android:text="Latest  News"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.199"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/news"
-        app:layout_constraintVertical_bias="0.518" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/quiz" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="116dp"
         android:layout_height="27dp"
-        android:layout_marginBottom="396dp"
+        android:layout_marginTop="8dp"
         android:text="Test yourself"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textAlignment="center"
+        android:textColor="?android:attr/textColorPrimary"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.85"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/quiz"
+        app:layout_constraintStart_toStartOf="@+id/quiz"
         app:layout_constraintTop_toBottomOf="@+id/quiz" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="61dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="220dp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:srcCompat="@drawable/java" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="125dp"
-        android:layout_height="39dp"
-        android:text="WELCOME"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.882" />
-
-    <ImageView
-        android:id="@+id/headquarters"
-        android:layout_width="125dp"
-        android:layout_height="105dp"
-        android:layout_marginTop="112dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.185"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/news"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/headquarter" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Headquarters"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.176"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headquarters"
-        app:layout_constraintVertical_bias="0.042" />
 
 
     <ImageView
         android:id="@+id/attemptPageImageView"
-        android:layout_width="147dp"
-        android:layout_height="115dp"
-        android:layout_marginTop="112dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.916"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/news"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/attempts_page_icon" />
 
     <TextView
         android:id="@+id/attemptPageTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Attempts"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textAlignment="center"
+        android:textColor="?android:attr/textColorPrimary"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.834"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headquarters"
-        app:layout_constraintVertical_bias="0.042" />
+        app:layout_constraintEnd_toEndOf="@+id/attemptPageImageView"
+        app:layout_constraintStart_toStartOf="@+id/attemptPageImageView"
+        app:layout_constraintTop_toBottomOf="@+id/attemptPageImageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
