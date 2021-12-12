@@ -138,12 +138,22 @@ public class QuizTypeActivity extends AppCompatActivity
         ArrayList<Question> generatedQuestionPerType = new ArrayList<Question>();
         Gson gson = new Gson();
         Random rand = new Random();
+        ArrayList<Integer> questions_indices = new ArrayList<>();
+        for (int j=0; j<questions.size(); j++)
+            questions_indices.add(j);
 
         for(int i=0; i<nbOfQuest; i++) {
-            int int_random = rand.nextInt(questions.size());
-            Object curr_quest = questions.get(int_random);
+
+            int int_random = (int) (Math.random()*questions_indices.size());
+            int random_index = questions_indices.get(int_random);
+            questions_indices.remove(int_random);
+
+            Object curr_quest = questions.get(random_index);
             Question ques = (Question) curr_quest;
             generatedQuestionPerType.add(ques);
+            //Toast.makeText(QuizTypeActivity.this, "Index Q: "+  i + "-> "+random_index , Toast.LENGTH_SHORT).show();
+
+
         }
         return generatedQuestionPerType;
 
