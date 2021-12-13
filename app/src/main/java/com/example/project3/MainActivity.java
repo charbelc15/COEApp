@@ -1,7 +1,10 @@
 package com.example.project3;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -11,8 +14,10 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.preference.PreferenceManager;
 
 import com.example.project3.data.AppDatabase;
+import com.google.android.gms.common.util.SharedPreferencesUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +25,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String themePref = prefs.getString(getString(R.string.key_theme), "Light");
+        Log.d("THEME", themePref);
+        switch (themePref) {
+            case "Auto":
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+                break;
+            case "Light":
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                break;
+            case "Dark":
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }
 
         // initialize database
         AppDatabase.initDB(getApplicationContext());
@@ -33,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 waterSound.start();
                 Intent intent = new Intent(MainActivity.this, QuizTypeActivity.class);
+                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(intent);
             }
         });

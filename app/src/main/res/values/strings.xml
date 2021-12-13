@@ -58,4 +58,6 @@
     <string name="dialog_message">Are you sure you want to clear the database? This will permanently erase all quiz attempts</string>
     <string name="dialog_yes">Yes</string>
     <string name="dialog_no">Cancel</string>
+
+    <string name="dialog_cancel_quiz">Are you sure you want to leave the quiz? No attempt will be saved</string>
 </resources>
