@@ -107,8 +107,6 @@ public class AttemptViewActivity extends AppCompatActivity
     }
 
 
-
-
     static Question getEachQuestionForResponse( QuestionResponse response , List<Question> questions )
     {
         int questionId = response.questionId;

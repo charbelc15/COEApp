@@ -10,8 +10,8 @@
         android:id="@+id/UserAnswerText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="36dp"
         android:text="ANSWER HERE"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/CorrectAnswerText" />
@@ -24,6 +24,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:text="answer:"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
@@ -48,6 +49,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="150dp"
         android:text="QUESTION TEXT HERE"
+        android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -68,6 +70,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
         android:text="correct:"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/QuestionText" />
 
