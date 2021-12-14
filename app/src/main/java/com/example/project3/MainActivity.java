@@ -1,5 +1,4 @@
 package com.example.project3;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
@@ -17,7 +16,6 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.PreferenceManager;
 
 import com.example.project3.data.AppDatabase;
-import com.google.android.gms.common.util.SharedPreferencesUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -63,6 +61,27 @@ public class MainActivity extends AppCompatActivity {
             waterSound.start();
             Intent intent = new Intent( MainActivity.this , AttemptsActivity.class );
             startActivity(intent);
+        });
+
+        ImageView news = this.findViewById(R.id.news);
+        ImageView headquarters = this.findViewById(R.id.headquarters);
+
+        news.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                waterSound.start();
+                Intent intent = new Intent(MainActivity.this, NewsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        headquarters.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                waterSound.start();
+                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(intent);
+            }
         });
     }
 
