@@ -7,7 +7,7 @@
 
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/QuestionText"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginStart="24dp"
@@ -23,7 +23,7 @@
         android:layout_marginStart="5dp"
         android:text="HELLO WORLD"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintStart_toEndOf="@+id/QuestionText"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.487" />
 

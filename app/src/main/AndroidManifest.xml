@@ -19,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project3">
         <activity
+            android:name=".AttemptViewActivity"
+            android:exported="true" />
+        <activity
             android:name=".SettingsActivity"
             android:exported="false"
             android:label="@string/title_activity_settings" />

@@ -15,10 +15,12 @@ import java.util.List;
 public class AttemptRecyclerViewAdapter extends RecyclerView.Adapter<AttemptViewHolder>
 {
     private List<Attempt> attempts;
+    private AttemptViewHolder.onAttemptClickedListener listener;
 
-    public AttemptRecyclerViewAdapter (ArrayList<Attempt> attempts )
+    public AttemptRecyclerViewAdapter (ArrayList<Attempt> attempts , AttemptViewHolder.onAttemptClickedListener listener )
     {
         this.attempts = attempts;
+        this.listener = listener;
     }
 
     @NonNull
@@ -27,7 +29,7 @@ public class AttemptRecyclerViewAdapter extends RecyclerView.Adapter<AttemptView
     {
         // inflate a layout
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_attempt_layout , parent , false );
-        AttemptViewHolder holder = new AttemptViewHolder(view);
+        AttemptViewHolder holder = new AttemptViewHolder(view , listener);
 
         return holder;
     }
