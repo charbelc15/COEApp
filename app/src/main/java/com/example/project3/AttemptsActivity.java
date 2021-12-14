@@ -1,18 +1,17 @@
 package com.example.project3;
 
+import android.graphics.Color;
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.graphics.Color;
-import android.os.Bundle;
 
 import com.example.project3.data.AppDatabase;
 import com.example.project3.data.Attempt;
 import com.example.project3.data.AttemptWithResponses;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.data.ChartData;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
@@ -30,6 +29,19 @@ public class AttemptsActivity extends AppCompatActivity
     private PieChart chartTF;
     private PieChart chartFTB;
     private PieChart chartMCQ;
+
+    private float totalTrialsTF =0;
+    private float totalTrialsMCQ =0;
+    private float totalTrialsFIB =0;
+
+    private float TpercentageTF=0;
+    private float FpercentageTF=0;
+
+    private float TpercentageMCQ=0;
+    private float FpercentageMCQ=0;
+
+    private float TpercentageFIB=0;
+    private float FpercentageFIB=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -55,6 +67,23 @@ public class AttemptsActivity extends AppCompatActivity
 
         for ( int i = 0 ; i < values.size() ; ++i )
         {
+            if(values.get(i).attempt.getQuizType().equals("MCQ")){
+                totalTrialsMCQ++;
+                TpercentageMCQ = (float) (((values.get(i).attempt.getCumulativeScore()/10))/totalTrialsMCQ)*100;
+                FpercentageMCQ = 100 - TpercentageMCQ;
+                //Log.i("lifecyclefilter",""+TpercentageMCQ);
+            }
+            if(values.get(i).attempt.getQuizType().equals("True or False")){
+                totalTrialsTF++;
+                TpercentageTF = (float) (((values.get(i).attempt.getCumulativeScore()/10))/totalTrialsTF)*100;
+                FpercentageTF = 100 - TpercentageTF;
+            }
+            if(values.get(i).attempt.getQuizType().equals("Fill in the blanks")){
+                totalTrialsFIB++;
+                TpercentageFIB = (float) (((values.get(i).attempt.getCumulativeScore()/10))/totalTrialsFIB)*100;
+                FpercentageFIB = 100 - TpercentageFIB;
+            }
+            //Log.i("lifecyclefilter",""+values.get(i).attempt.getQuizType());
             attempts.add(values.get(i).attempt);
         }
 
@@ -67,14 +96,13 @@ public class AttemptsActivity extends AppCompatActivity
         chartFTB = findViewById(R.id.pieChartFTB);
         chartMCQ = findViewById(R.id.pieChartMCQ);
 
-
-        setupPieChart( chartTF );
-        setupPieChart( chartFTB );
-        setupPieChart( chartMCQ );
+        setupPieChart( chartTF,TpercentageTF,FpercentageTF);
+        setupPieChart( chartFTB,TpercentageFIB,FpercentageFIB);
+        setupPieChart( chartMCQ,TpercentageMCQ,FpercentageMCQ);
     }
 
 
-    private void setupPieChart( PieChart chart )
+    private void setupPieChart( PieChart chart,float percentageT, float percentageF )
     {
         chart.setDrawHoleEnabled(true);
         chart.setUsePercentValues(true);
@@ -90,8 +118,8 @@ public class AttemptsActivity extends AppCompatActivity
 
         List<PieEntry> value = new ArrayList<>();
 
-        value.add(new PieEntry( 40f , "True"));
-        value.add(new PieEntry( 60f , "False"));
+        value.add(new PieEntry((float) percentageT , "True"));
+        value.add(new PieEntry( (float) percentageF, "False"));
 
         PieDataSet pieDataSet = new PieDataSet(value , "");
 

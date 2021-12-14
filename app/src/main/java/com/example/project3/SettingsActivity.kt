@@ -26,7 +26,7 @@ class SettingsActivity : AppCompatActivity() {
     class SettingsFragment : PreferenceFragmentCompat() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey)
-            val themeSet = findPreference<ListPreference>(getString(R.string.key_theme))
+            val themeSet = findPreference<ListPreference>(   getString(R.string.key_theme))
             val dbClear = findPreference<Preference>(getString(R.string.pref_db_clea))
 
             themeSet?.onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
