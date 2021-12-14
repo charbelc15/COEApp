@@ -30,7 +30,6 @@ public class Attempt {
         return cumulativeScore;
     }
 
-
     public long getAttemptId() {
         return attemptId;
     }

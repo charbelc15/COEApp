@@ -96,13 +96,13 @@ public class AttemptsActivity extends AppCompatActivity
         chartFTB = findViewById(R.id.pieChartFTB);
         chartMCQ = findViewById(R.id.pieChartMCQ);
 
-        setupPieChart( chartTF,TpercentageTF,FpercentageTF);
-        setupPieChart( chartFTB,TpercentageFIB,FpercentageFIB);
-        setupPieChart( chartMCQ,TpercentageMCQ,FpercentageMCQ);
+        setupPieChart( chartTF,TpercentageTF,FpercentageTF , "True or False");
+        setupPieChart( chartFTB,TpercentageFIB,FpercentageFIB , "Fill the Blanks");
+        setupPieChart( chartMCQ,TpercentageMCQ,FpercentageMCQ , "Multiple Choice");
     }
 
 
-    private void setupPieChart( PieChart chart,float percentageT, float percentageF )
+    private void setupPieChart( PieChart chart,float percentageT, float percentageF , String title )
     {
         chart.setDrawHoleEnabled(true);
         chart.setUsePercentValues(true);
@@ -111,6 +111,9 @@ public class AttemptsActivity extends AppCompatActivity
         chart.setEntryLabelColor(Color.BLACK);
         chart.getDescription().setEnabled(false);
 
+        chart.setCenterText(title);
+        chart.setCenterTextSize(15);
+
         Legend l = chart.getLegend();
         l.setDrawInside(true);
         l.setEnabled(true);
@@ -118,12 +121,12 @@ public class AttemptsActivity extends AppCompatActivity
 
         List<PieEntry> value = new ArrayList<>();
 
-        value.add(new PieEntry((float) percentageT , "True"));
-        value.add(new PieEntry( (float) percentageF, "False"));
+        value.add(new PieEntry((float) percentageT , "Correct"));
+        value.add(new PieEntry( (float) percentageF, "Wrong"));
 
         PieDataSet pieDataSet = new PieDataSet(value , "");
 
-        pieDataSet.setColors(Color.RED , Color.GREEN);
+        pieDataSet.setColors(Color.GREEN , Color.RED);
         PieData pieData = new PieData(pieDataSet);
 
         pieData.setDrawValues(true);
