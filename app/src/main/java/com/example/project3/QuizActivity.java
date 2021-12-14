@@ -2,23 +2,30 @@ package com.example.project3;
 
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import com.example.project3.data.AppDatabase;
 import com.example.project3.data.Attempt;
 import com.example.project3.data.Question;
 import com.example.project3.data.QuestionResponse;
+import com.example.project3.fragments.CancelQuizDialogFragment;
 import com.example.project3.fragments.FBFragment;
 import com.example.project3.fragments.MCQFragment;
 import com.example.project3.fragments.QuizFragment;
@@ -43,6 +50,10 @@ public class QuizActivity extends AppCompatActivity {
     private int currentQuestionIndex = 0;
     private ArrayList<Question> questions;
     private ArrayList<QuestionResponse> responses;
+    private boolean isQuizDone;
+
+    private MediaPlayer correctPlayer;
+    private MediaPlayer incorrectPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +72,10 @@ public class QuizActivity extends AppCompatActivity {
         currentAttempt = new Attempt();
         currentAttempt.setQuizType(questionsType);
         responses = new ArrayList<>();
+        isQuizDone = false;
+
+        correctPlayer = MediaPlayer.create(this, R.raw.positive_sound);
+        incorrectPlayer = MediaPlayer.create(this, R.raw.negative_sound);
 
         switch (questionsType) {
             case "MCQ":
@@ -81,6 +96,12 @@ public class QuizActivity extends AppCompatActivity {
        }
 
        updateTexts();
+
+       ActionBar actionBar = getSupportActionBar();
+       if (actionBar != null) {
+           actionBar.setDisplayHomeAsUpEnabled(true);
+           actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_close_24);
+       }
     }
 
     private void setQuestionFragment(int questionIndex) {
@@ -99,24 +120,65 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     public void submitQuestionAnswer(String answer) {
-        Question current = questions.get(currentQuestionIndex);
+        if (!isQuizDone) {
+            Question current = questions.get(currentQuestionIndex);
 
-        if (current.getCorrectAnswer().equalsIgnoreCase(answer)) {
-            currentAttempt.addScore(current.getScore());
+            if (current.getCorrectAnswer().equalsIgnoreCase(answer)) {
+                currentAttempt.addScore(current.getScore());
+                correctPlayer.start();
+            } else {
+                incorrectPlayer.start();
+            }
+            responses.add(new QuestionResponse(current.getQuestionId(), answer));
+
+
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.size()) {
+                setQuestionFragment(currentQuestionIndex);
+                updateTexts();
+            } else {
+                // done with quiz!
+                isQuizDone = true;
+                AppDatabase.db.getQuizDao().insertAttemptWithResponses(currentAttempt, responses);
+                Snackbar.make(constraintLayout, "Quiz Complete!", Snackbar.LENGTH_INDEFINITE)
+                        .setAction("Done", v -> finish())
+                        .show();
+            }
+            if (this.getCurrentFocus() != null) {
+                InputMethodManager inputMethodManager = ContextCompat.getSystemService(this, InputMethodManager.class);
+                inputMethodManager.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), 0);
+            }
+
         }
-        responses.add(new QuestionResponse(current.getQuestionId(), answer));
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        correctPlayer.release();
+        incorrectPlayer.release();
+        correctPlayer = null;
+        incorrectPlayer = null;
+    }
 
-        currentQuestionIndex++;
-        if (currentQuestionIndex < questions.size()) {
-            setQuestionFragment(currentQuestionIndex);
-            updateTexts();
-        } else {
-            // done with quiz!
-            AppDatabase.db.getQuizDao().insertAttemptWithResponses(currentAttempt, responses);
-            Snackbar.make(constraintLayout, "Quiz Done!", Snackbar.LENGTH_SHORT).show();
-            finish();
+    @Override
+    public void onBackPressed() {
+        CancelQuizDialogFragment dialog = new CancelQuizDialogFragment();
+        dialog.show(getSupportFragmentManager(), "quiz");
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
         }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void cancelQuiz() {
+        this.finish();
     }
 
 }
