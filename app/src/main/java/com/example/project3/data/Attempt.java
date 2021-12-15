@@ -3,10 +3,11 @@ package com.example.project3.data;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
 import java.time.Instant;
 
 @Entity(tableName = "attempts")
-public class Attempt {
+public class Attempt implements Serializable {
     private Instant date;
     private String quizType;
     private double cumulativeScore;
@@ -29,7 +30,6 @@ public class Attempt {
     public double getCumulativeScore() {
         return cumulativeScore;
     }
-
 
     public long getAttemptId() {
         return attemptId;

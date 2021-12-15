@@ -29,8 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class QuizTypeActivity extends AppCompatActivity
-        {
+public class QuizTypeActivity extends AppCompatActivity {
 
     public ArrayList<Question> generatedQuestions;
     ListView listView;

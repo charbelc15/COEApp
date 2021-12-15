@@ -1,5 +1,6 @@
 package com.example.project3;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -17,10 +18,11 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AttemptsActivity extends AppCompatActivity
+public class AttemptsActivity extends AppCompatActivity implements AttemptViewHolder.onAttemptClickedListener
 {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter recyclerViewAdapter;
@@ -43,6 +45,10 @@ public class AttemptsActivity extends AppCompatActivity
     private float TpercentageFIB=0;
     private float FpercentageFIB=0;
 
+    // current List of attempts
+    private  ArrayList<Attempt> attempts;
+    private List<AttemptWithResponses> attemptWithResponses;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -60,34 +66,34 @@ public class AttemptsActivity extends AppCompatActivity
 
         // fetch the attempts from the db and hand them to the recycler view
 
-        List<AttemptWithResponses> values =
+        attemptWithResponses =
         AppDatabase.db.getQuizDao().attemptsWithResponses();
 
-        ArrayList<Attempt> attempts = new ArrayList<>();
+        attempts = new ArrayList<>();
 
-        for ( int i = 0 ; i < values.size() ; ++i )
+        for ( int i = 0 ; i < attemptWithResponses.size() ; ++i )
         {
-            if(values.get(i).attempt.getQuizType().equals("MCQ")){
+            if(attemptWithResponses.get(i).attempt.getQuizType().equals("MCQ")){
                 totalTrialsMCQ++;
-                TpercentageMCQ = (float) (((values.get(i).attempt.getCumulativeScore()/10))/totalTrialsMCQ)*100;
+                TpercentageMCQ = (float) (((attemptWithResponses.get(i).attempt.getCumulativeScore()/10))/totalTrialsMCQ)*100;
                 FpercentageMCQ = 100 - TpercentageMCQ;
                 //Log.i("lifecyclefilter",""+TpercentageMCQ);
             }
-            if(values.get(i).attempt.getQuizType().equals("True or False")){
+            if(attemptWithResponses.get(i).attempt.getQuizType().equals("True or False")){
                 totalTrialsTF++;
-                TpercentageTF = (float) (((values.get(i).attempt.getCumulativeScore()/10))/totalTrialsTF)*100;
+                TpercentageTF = (float) (((attemptWithResponses.get(i).attempt.getCumulativeScore()/10))/totalTrialsTF)*100;
                 FpercentageTF = 100 - TpercentageTF;
             }
-            if(values.get(i).attempt.getQuizType().equals("Fill in the blanks")){
+            if(attemptWithResponses.get(i).attempt.getQuizType().equals("Fill in the blanks")){
                 totalTrialsFIB++;
-                TpercentageFIB = (float) (((values.get(i).attempt.getCumulativeScore()/10))/totalTrialsFIB)*100;
+                TpercentageFIB = (float) (((attemptWithResponses.get(i).attempt.getCumulativeScore()/10))/totalTrialsFIB)*100;
                 FpercentageFIB = 100 - TpercentageFIB;
             }
             //Log.i("lifecyclefilter",""+values.get(i).attempt.getQuizType());
-            attempts.add(values.get(i).attempt);
+            attempts.add(attemptWithResponses.get(i).attempt);
         }
 
-        recyclerViewAdapter = new AttemptRecyclerViewAdapter( attempts );
+        recyclerViewAdapter = new AttemptRecyclerViewAdapter( attempts , this );
         recyclerView.setAdapter(recyclerViewAdapter);
 
         // init pi charts
@@ -96,13 +102,13 @@ public class AttemptsActivity extends AppCompatActivity
         chartFTB = findViewById(R.id.pieChartFTB);
         chartMCQ = findViewById(R.id.pieChartMCQ);
 
-        setupPieChart( chartTF,TpercentageTF,FpercentageTF);
-        setupPieChart( chartFTB,TpercentageFIB,FpercentageFIB);
-        setupPieChart( chartMCQ,TpercentageMCQ,FpercentageMCQ);
+        setupPieChart( chartTF,TpercentageTF,FpercentageTF , "True or False");
+        setupPieChart( chartFTB,TpercentageFIB,FpercentageFIB , "Fill the Blanks");
+        setupPieChart( chartMCQ,TpercentageMCQ,FpercentageMCQ , "Multiple Choice");
     }
 
 
-    private void setupPieChart( PieChart chart,float percentageT, float percentageF )
+    private void setupPieChart( PieChart chart,float percentageT, float percentageF , String title )
     {
         chart.setDrawHoleEnabled(true);
         chart.setUsePercentValues(true);
@@ -111,6 +117,9 @@ public class AttemptsActivity extends AppCompatActivity
         chart.setEntryLabelColor(Color.BLACK);
         chart.getDescription().setEnabled(false);
 
+        chart.setCenterText(title);
+        chart.setCenterTextSize(15);
+
         Legend l = chart.getLegend();
         l.setDrawInside(true);
         l.setEnabled(true);
@@ -118,12 +127,12 @@ public class AttemptsActivity extends AppCompatActivity
 
         List<PieEntry> value = new ArrayList<>();
 
-        value.add(new PieEntry((float) percentageT , "True"));
-        value.add(new PieEntry( (float) percentageF, "False"));
+        value.add(new PieEntry((float) percentageT , "Correct"));
+        value.add(new PieEntry( (float) percentageF, "Wrong"));
 
         PieDataSet pieDataSet = new PieDataSet(value , "");
 
-        pieDataSet.setColors(Color.RED , Color.GREEN);
+        pieDataSet.setColors(Color.GREEN , Color.RED);
         PieData pieData = new PieData(pieDataSet);
 
         pieData.setDrawValues(true);
@@ -133,5 +142,17 @@ public class AttemptsActivity extends AppCompatActivity
 
         chart.setData(pieData);
         chart.animateXY(600,600);
+    }
+
+    // happens when the user presses on an entry on the recycler view attempts list
+    @Override
+    public void onAttemptClicked(int position)
+    {
+        Bundle extra = new Bundle();
+        extra.putSerializable("ATTEMPT" , (Serializable) attempts.get(position) );
+        extra.putSerializable("LIST" , ( Serializable) attemptWithResponses.get(position).responses );
+        Intent intent = new Intent ( this , AttemptViewActivity.class );
+        intent.putExtra("BUNDLE"  , extra );
+        startActivity(intent);
     }
 }
