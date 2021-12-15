@@ -66,9 +66,7 @@ public class QuizTypeActivity extends AppCompatActivity
         list = new ArrayList<>();
 
         for (int i = 0;i<quizTypes.length;i++){
-
             list.add(quizTypes[i]);
-
         }
 //        listView.setChoiceMode(listView.CHOICE_MODE_SINGLE);
 
@@ -83,11 +81,11 @@ public class QuizTypeActivity extends AppCompatActivity
                 String selected_type = quizTypes[i];
                 Toast.makeText(QuizTypeActivity.this, "selected: "+  quizTypes[i], Toast.LENGTH_SHORT).show();
 
-                if (selected_type == "True or False"){
+                if (selected_type.equals("True or False")){
                     quizType="tof.json";
                 }
                 else{
-                    if (selected_type == "MCQ"){
+                    if (selected_type.equals("MCQ")){
                         quizType="mcq.json";
                     }
                     else{
@@ -147,7 +145,8 @@ public class QuizTypeActivity extends AppCompatActivity
         Random rand = new Random();
         ArrayList<Integer> questions_indices = new ArrayList<>();
         for (int j=0; j<questions.size(); j++)
-            questions_indices.add(j);
+            if (questions.get(j).getQuestionId() != 208 && questions.get(j).getQuestionId() != 215)
+                questions_indices.add(j);
 
         for(int i=0; i<nbOfQuest; i++) {
 

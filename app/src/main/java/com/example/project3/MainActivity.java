@@ -41,15 +41,13 @@ public class MainActivity extends AppCompatActivity {
         // initialize database
         AppDatabase.initDB(getApplicationContext());
 
-        MediaPlayer waterSound = MediaPlayer.create(this, R.raw.watersound);
         ImageView quiz = this.findViewById(R.id.quiz);
         ImageView attempts = this.findViewById(R.id.attemptPageImageView);
 
         quiz.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                waterSound.start();
-                Intent intent = new Intent(MainActivity.this, QuizTypeActivity.class);
+                 Intent intent = new Intent(MainActivity.this, QuizTypeActivity.class);
                 intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(intent);
             }
@@ -58,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         // hook listener for attempts page
         attempts.setOnClickListener( v ->
         {
-            waterSound.start();
             Intent intent = new Intent( MainActivity.this , AttemptsActivity.class );
             startActivity(intent);
         });
