@@ -127,7 +127,7 @@ public class AttemptsActivity extends AppCompatActivity implements AttemptViewHo
     private void setupPieChart( PieChart chart,float percentageT, float percentageF , String title )
     {
         Log.d("PERCENTAGE", "" + percentageT);
-        if (percentageT == 0.0) {
+        if (percentageT == 0.0 && percentageF == 0.0) {
             chart.setVisibility(View.GONE);
             return;
         }
