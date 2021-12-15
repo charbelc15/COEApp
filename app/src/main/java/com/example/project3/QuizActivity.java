@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,6 +37,7 @@ import com.google.android.material.snackbar.Snackbar;
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class QuizActivity extends AppCompatActivity {
     // setting up things
@@ -102,6 +105,28 @@ public class QuizActivity extends AppCompatActivity {
            actionBar.setDisplayHomeAsUpEnabled(true);
            actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_close_24);
        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable("attempt", currentAttempt);
+        outState.putInt("index", currentQuestionIndex);
+        outState.putSerializable("questions", questions);
+        outState.putSerializable("responses", responses);
+        outState.putBoolean("isDone", isQuizDone);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        currentAttempt = (Attempt) savedInstanceState.getSerializable("attempt");
+        currentQuestionIndex = savedInstanceState.getInt("index");
+        questions = (ArrayList<Question>) savedInstanceState.getSerializable("questions");
+        responses = (ArrayList<QuestionResponse>) savedInstanceState.getSerializable("responses");
+        isQuizDone = savedInstanceState.getBoolean("isDone");
+
+        updateTexts();
     }
 
     private void setQuestionFragment(int questionIndex) {
