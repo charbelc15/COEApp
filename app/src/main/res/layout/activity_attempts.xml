@@ -18,6 +18,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:text="Attempts"
+            android:textColor="?android:attr/textColorPrimary"
             android:textSize="30dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pieChartMCQ" />

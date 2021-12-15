@@ -1,6 +1,10 @@
 package com.example.project3;
 
+import static android.webkit.WebSettings.FORCE_DARK_OFF;
+import static android.webkit.WebSettings.FORCE_DARK_ON;
+
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.webkit.WebSettings;
@@ -10,6 +14,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.webkit.WebSettingsCompat;
+import androidx.webkit.WebViewFeature;
 
 import com.example.project3.data.Attempt;
 import com.example.project3.data.Question;
@@ -101,6 +107,19 @@ public class AttemptViewActivity extends AppCompatActivity
         // launch web view with the link
 
         WebView theWebPage = new WebView(this);
+
+        if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
+            switch (getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
+                case Configuration.UI_MODE_NIGHT_YES:
+                    WebSettingsCompat.setForceDark(theWebPage.getSettings(), WebSettingsCompat.FORCE_DARK_ON);
+                    break;
+                case Configuration.UI_MODE_NIGHT_NO:
+                case Configuration.UI_MODE_NIGHT_UNDEFINED:
+                    WebSettingsCompat.setForceDark(theWebPage.getSettings(), WebSettingsCompat.FORCE_DARK_OFF);
+                    break;
+            }
+        }
+
         theWebPage.getSettings().setJavaScriptEnabled(true);
         setContentView(theWebPage);
         theWebPage.loadUrl(String.valueOf(link));

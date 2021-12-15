@@ -1,10 +1,17 @@
 package com.example.project3;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
+import android.util.TypedValue;
+import android.view.View;
 
+import androidx.annotation.AttrRes;
+import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -107,23 +114,42 @@ public class AttemptsActivity extends AppCompatActivity implements AttemptViewHo
         setupPieChart( chartMCQ,TpercentageMCQ,FpercentageMCQ , "Multiple Choice");
     }
 
+    @ColorInt
+    private int getColorResCompat(Context ctx, @AttrRes int id) {
+        TypedValue resolvedAttr = new TypedValue();
+        ctx.getTheme().resolveAttribute(id, resolvedAttr, true);
+
+        int colorRes = (resolvedAttr.resourceId != 0) ? resolvedAttr.resourceId : resolvedAttr.data;
+        return ContextCompat.getColor(ctx, colorRes);
+    }
+
 
     private void setupPieChart( PieChart chart,float percentageT, float percentageF , String title )
     {
+        Log.d("PERCENTAGE", "" + percentageT);
+        if (percentageT == 0.0) {
+            chart.setVisibility(View.GONE);
+            return;
+        }
+        int textColor = getColorResCompat(this, android.R.attr.textColorPrimary);
+        int backgroundColor = getColorResCompat(this, android.R.attr.colorBackground);
         chart.setDrawHoleEnabled(true);
+        chart.setHoleColor(backgroundColor);
         chart.setUsePercentValues(true);
         chart.setDrawEntryLabels(false);
         chart.setEntryLabelTextSize(20);
-        chart.setEntryLabelColor(Color.BLACK);
+        chart.setEntryLabelColor(textColor);
         chart.getDescription().setEnabled(false);
 
         chart.setCenterText(title);
         chart.setCenterTextSize(15);
+        chart.setCenterTextColor(textColor);
 
         Legend l = chart.getLegend();
         l.setDrawInside(true);
         l.setEnabled(true);
         l.setTextSize(15);
+        l.setTextColor(textColor);
 
         List<PieEntry> value = new ArrayList<>();
 
@@ -138,7 +164,7 @@ public class AttemptsActivity extends AppCompatActivity implements AttemptViewHo
         pieData.setDrawValues(true);
         pieData.setValueFormatter(new PercentFormatter(chart));
         pieData.setValueTextSize(30);
-        pieData.setValueTextColor(Color.BLACK);
+        pieData.setValueTextColor(textColor);
 
         chart.setData(pieData);
         chart.animateXY(600,600);

@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
         news.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                waterSound.start();
                 Intent intent = new Intent(MainActivity.this, NewsActivity.class);
                 startActivity(intent);
             }
@@ -75,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
         headquarters.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                waterSound.start();
                 Intent intent = new Intent(MainActivity.this, MapsActivity.class);
                 startActivity(intent);
             }
